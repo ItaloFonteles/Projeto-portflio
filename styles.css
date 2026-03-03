@@ -181,7 +181,12 @@ body {
     padding: 80px 20px;   
     background: #020617;
 }
-
+.contato-subtitulo {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 40px;
+}
 .contato-titulo {
     text-align: center;
     font-size: 2rem;
