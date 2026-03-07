@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Serviços de Hardware | Ítalo</title>
+</head>
+<body style="background: #0f172a;">
+
+<nav class="navegacao">
+    <ul class="menu">
+        <li><a href="index.html" class="menu-link">← Voltar</a></li>
+    </ul>
+</nav>
+
+<main class="container-detalhes">
+    <h1 class="trabalho-titulo">Serviços de Audiovisual</h1>
+    
+    <div class="lista-trabalhos">
+        <div class="projeto-item-detalhado reveal">
+            <div class="media-wrapper">
+                <video src="img/manutecaopc.JPEG" muted loop autoplay playsinline></video>
+            </div>
+            <div class="texto-explicativo">
+                <h3>Configuração de BIOS</h3>
+                <p>Ajuste fino de parâmetros para garantir que o hardware reconheça todos os componentes e opere com o máximo desempenho e segurança.</p>
+            </div>
+        </div>
+
+        <div class="projeto-item-detalhado reveal">
+            <div class="media-wrapper">
+                <video src="img/Montagem de Servidores .mp4" muted loop autoplay playsinline></video>
+            </div>
+            <div class="texto-explicativo">
+                <h3>Montagem de Servidores</h3>
+                <p>Estruturação física de servidores corporativos, focando em organização de cabos e fluxo de refrigeração constante.</p>
+            </div>
+        </div>
+
+        <div class="projeto-item-detalhado reveal">
+            <div class="media-wrapper">
+                <img src="img/manutecaopc.JPEG" class="trabalho-imagem">
+            </div>
+            <div class="texto-explicativo">
+                <h3>Manutenção Preventiva</h3>
+                <p>Limpeza completa e substituição de componentes térmicos para evitar falhas críticas por superaquecimento.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    /* Script para os itens surgirem ao rolar */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

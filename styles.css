@@ -148,7 +148,6 @@ body {
 .media-wrapper {
     width: 100%;
     aspect-ratio: 3 / 4;   /* todas com mesma proporção */
-    height: 420px;        /* força mesma altura */
     overflow: hidden;
     border-radius: 16px;
     background: #000;
@@ -157,7 +156,53 @@ body {
     align-items: center;
     justify-content: center;
 }
+/* Estilos para as páginas internas */
+.card-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
+.container-detalhes {
+    padding: 120px 20px;
+    max-items: 1100px;
+    margin: auto;
+}
+
+.lista-trabalhos {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.projeto-item-detalhado {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Vídeo de um lado, texto do outro */
+    gap: 30px;
+    align-items: center;
+    background: #020617;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #1e293b;
+}
+
+.texto-explicativo h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.texto-explicativo p {
+    color: #cbd5f5;
+    line-height: 1.5;
+}
+
+/* Responsividade: No celular, o texto fica abaixo do vídeo */
+@media (max-width: 768px) {
+    .projeto-item-detalhado {
+        grid-template-columns: 1fr;
+    }
+}
 /* Imagens e vídeos sempre do mesmo tamanho */
 .trabalho-imagem,
 .trabalho-item video {
