@@ -25,7 +25,7 @@
 </nav>   
 
 <main id="inicio" class="cabecalho">
-    <img src="img/Perfil.Italo.jpg" alt="Foto de Ítalo Fonteles" class="foto-perfil">
+<img src="img/perfilitalo.jpg" alt="Foto de Ítalo Fonteles" class="foto-perfil">
     <h1>Ítalo Fonteles</h1>  
     <p class="subtitulo">Técnico Hardware, Software e Audiovisual</p>      
 </main>
@@ -50,15 +50,15 @@
             <h3 class="trabalho-nome">Manutenção Preventiva e Upgrades de Hardware</h3>
 
             <div class="media-wrapper">
-                <img src="img/Manuteçãopc.JPEG" alt="Manutenção de PC" class="trabalho-imagem">
+            <img src="img/manutecaopc.JPEG" alt="Manutenção de PC" class="trabalho-imagem">
             </div>
 
             <div class="media-wrapper">
-                <video src="img/Configuração da Bios PC.mp4" muted loop playsinline autoplay></video>
+                <video src="img/montagemservidores.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <div class="media-wrapper">
-                <video src="img/Montagem de Servidores .mp4" muted loop playsinline autoplay></video>
+                <video src="img/configuracao-biosPC.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <p class="trabalho-descricao">
@@ -71,15 +71,15 @@
             <h3 class="trabalho-nome">Montagem de Racks, Equipamentos e Painéis LED</h3>
 
             <div class="media-wrapper">
-                <img src="img/Configuração painel led.JPEG" alt="Instalações em câmaras municipais" class="trabalho-imagem">
+                <img src="img/configuracao-painelled.JPEG" alt="Instalações em câmaras municipais" class="trabalho-imagem">
             </div>
 
             <div class="media-wrapper">
-                <video src="img/rack-sonorização.mp4" muted loop playsinline autoplay></video>
+                <video src="img/rack-sonorizacao.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <div class="media-wrapper">
-                <video src="img/Cabeamento rack .mp4" muted loop playsinline autoplay></video>
+                <video src="img/cabeamento-rack.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <p class="trabalho-descricao">
@@ -92,15 +92,15 @@
             <h3 class="trabalho-nome">Infraestrutura Audiovisual e Sistemas em Órgãos Públicos</h3>
 
             <div class="media-wrapper">
-            <img src="img/Intalações.JPEG" alt="Infraestrutura de rede" class="trabalho-imagem">
+            <img src="img/intalacoes.JPEG" alt="Infraestrutura de rede" class="trabalho-imagem">
             </div>
 
             <div class="media-wrapper">
-                <video src="img/Plenário operação.mp4" muted loop playsinline autoplay></video>
+                <video src="img/plenáriooperacao.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <div class="media-wrapper">
-                <video src="img/Plenário TJPR.mp4" muted loop playsinline autoplay></video>
+                <video src="img/plenario.mp4" muted loop playsinline autoplay></video>
             </div>
 
             <p class="trabalho-descricao">
@@ -109,7 +109,7 @@
         </div>
 
     </div>
-</section>
+</section> 
 
 <section id="contato" class="contato reveal">
     <h2 class="contato-titulo">Contato</h2>
@@ -157,11 +157,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 
-closeModal.addEventListener('click', () => {
-  modal.classList.remove('active');
-  modalPlayer.pause();
-  modalPlayer.src = '';
-});
+
 //* FORMULÁRIO DE CONTATO VIA WHATSAPP */
 function enviarwhatsapp(event) {
     event.preventDefault(); // Evita o recarregamento da página
