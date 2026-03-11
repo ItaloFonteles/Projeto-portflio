@@ -18,9 +18,10 @@
     <h1 class="trabalho-titulo">Manutenção Preventiva e Upgrades</h1>
     
     <div class="lista-trabalhos">
+        
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <video src="img/configuracao-biosPC.mp4" muted loop autoplay playsinline></video>
+                <video src="img/configuracao-biosPC.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
                 <h3>Configuração de BIOS</h3>
@@ -30,7 +31,7 @@
 
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <video src="img/montagemservidores.mp4" muted loop autoplay playsinline></video>
+                <video src="img/montagemservidores.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
                 <h3>Montagem de Servidores</h3>
@@ -40,23 +41,44 @@
 
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <img src="img/Manuteçãopc.JPEG" class="trabalho-imagem">
+                <img src="img/manutecaopc.jpg" class="trabalho-imagem" loading="lazy">
             </div>
             <div class="texto-explicativo">
                 <h3>Manutenção Preventiva</h3>
                 <p>Limpeza completa e substituição de componentes térmicos para evitar falhas críticas por superaquecimento.</p>
             </div>
         </div>
+
     </div>
 </main>
 
 <script>
-    /* Script para os itens surgirem ao rolar */
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    /* SCRIPT OTIMIZADO: 
+       Faz os itens aparecerem E os vídeos darem play apenas quando estiverem na tela.
+    */
+    const observerOptions = {
+        threshold: 0.2 // Começa a agir quando 20% do item aparece
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Ativa a animação de revelação
+                entry.target.classList.add('active');
+                
+                // Se for um vídeo dentro do wrapper, dá play
+                const video = entry.target.querySelector('video');
+                if (video) video.play();
+            } else {
+                // Se sair da tela, pausa o vídeo para economizar processamento
+                const video = entry.target.querySelector('video');
+                if (video) video.pause();
+            }
+        });
+    }, observerOptions);
+
+    // Observa todos os itens que têm a classe .reveal
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
