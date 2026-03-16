@@ -12,6 +12,18 @@ body {
     line-height: 1.6;
 }
 
+/* ADICIONADO APENAS O QUE É NECESSÁRIO PARA O REVEAL FUNCIONAR */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ================= NAVBAR ================= */
 .navegacao {
     position: fixed;
@@ -102,7 +114,7 @@ body {
 
 .sobre-paragrafo {
     font-size: 1.1rem;
-    color: #cbd5f5;
+    color: #cbd5f5;  
 }
 
 /* ================= TRABALHOS ================= */
@@ -143,23 +155,23 @@ body {
     margin-bottom: 15px;
     color: #38bdf8;
 }
+
 /* AJUSTE ESPECÍFICO DE TAMANHO PARA PÁGINAS INTERNAS */
 
-/* 1. Limita a largura do container para o vídeo não esticar na tela toda */
+/* 1. Limita a largura do container */
 .container-detalhes {
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* 2. Controla o tamanho do vídeo para ele ficar grande, mas não gigante */
+/* 2. Controla o tamanho do vídeo */
 .projeto-item-detalhado .media-wrapper {
-    max-width: 750px; /* Altere este valor para mais ou menos se quiser ajustar o tamanho */
+    max-width: 800px; 
     width: 100%;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9; /* Mantém a proporção de vídeo profissional */
+    margin: 0 auto; 
 }
 
-/* 3. Garante que o vídeo preencha o espaço sem sobrar bordas pretas */
+/* 3. Garante que o vídeo preencha o espaço */
 .projeto-item-detalhado video,
 .projeto-item-detalhado img {
     width: 100%;
@@ -170,7 +182,7 @@ body {
 /* PADRÃO PROFISSIONAL PARA TODAS AS MÍDIAS */
 .media-wrapper {
     width: 100%;
-    aspect-ratio: 3 / 4;   /* todas com mesma proporção */
+    aspect-ratio: 3 / 4; 
     overflow: hidden;
     border-radius: 16px;
     background: #000;
@@ -179,6 +191,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 /* Estilos para as páginas internas */
 .card-link-wrapper {
     text-decoration: none;
@@ -187,8 +200,8 @@ body {
 }
 
 .container-detalhes {
-    padding: 120px 20px;
-    max-items: 1100px;
+    padding: 80px 20px;
+    max-width: 1100px; /* Corrigido de max-items para max-width */
     margin: auto;
 }
 
@@ -196,12 +209,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .projeto-item-detalhado {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Vídeo de um lado, texto do outro */
+    grid-template-columns: 1fr 1fr; 
     gap: 30px;
     align-items: center;
     background: #020617;
@@ -226,14 +239,13 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 /* Imagens e vídeos sempre do mesmo tamanho */
-.trabalho-imagem,
 .trabalho-item video {
     width: 100%;
     height: 100%;
-    object-fit: cover;    /* corta sem distorcer */
+    object-fit: cover;    
     object-position: center;
-    /* ADICIONE A LINHA ABAIXO */
     pointer-events: none;
 }
 
@@ -290,7 +302,6 @@ body {
     width: 100%;
     padding: 15px;
     border-radius: 8px;
-    border: none;
     outline: none;
     background: #0f172a;
     color: #e5e7eb;
@@ -307,26 +318,12 @@ body {
     resize: vertical;
 }
 
-/* ================= RESPONSIVO ================= */
-@media (max-width: 600px) {
-    .menu {
-        gap: 20px;
-        font-size: 0.9rem;
-    }
-
-    .cabecalho h1 {
-        font-size: 2rem;
-    }
-
-    .subtitulo {
-        font-size: 1rem;
-    }
-}
+/* ================= ANIMAÇÃO DE FLUTUAR ================= */
 @keyframes flutuar {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
-}
+}   

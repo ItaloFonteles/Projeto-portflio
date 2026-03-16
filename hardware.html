@@ -41,7 +41,7 @@
 
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <img src="img/manutecaopc.jpg" class="trabalho-imagem" loading="lazy">
+                <img src="img/manutecaopc.jpg" class="trabalho-imagem" loading="lazy" alt="Manutenção de PC">
             </div>
             <div class="texto-explicativo">
                 <h3>Manutenção Preventiva</h3>
@@ -53,31 +53,30 @@
 </main>
 
 <script>
-    /* SCRIPT OTIMIZADO: 
-       Faz os itens aparecerem E os vídeos darem play apenas quando estiverem na tela.
-    */
     const observerOptions = {
-        threshold: 0.2 // Começa a agir quando 20% do item aparece
+        threshold: 0.2 
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Ativa a animação de revelação
+                // Ativa a classe active para o CSS fazer o fade-in
                 entry.target.classList.add('active');
                 
-                // Se for um vídeo dentro do wrapper, dá play
+                // Pega o vídeo se ele existir dentro desse item
                 const video = entry.target.querySelector('video');
-                if (video) video.play();
+                if (video) {
+                    video.play().catch(error => {
+                        console.log("O autoplay foi bloqueado pelo navegador ou o vídeo ainda não carregou.");
+                    });
+                }
             } else {
-                // Se sair da tela, pausa o vídeo para economizar processamento
                 const video = entry.target.querySelector('video');
                 if (video) video.pause();
             }
         });
     }, observerOptions);
 
-    // Observa todos os itens que têm a classe .reveal
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 

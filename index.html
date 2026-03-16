@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO BÁSICO -->
     <meta name="description" content="Portfólio de Ítalo Fonteles, técnico em hardware, software, redes e audiovisual.">
     <meta name="keywords" content="técnico em informática, hardware, software, redes, audiovisual, TI, suporte técnico">
     <meta name="author" content="Ítalo Fonteles">
@@ -93,11 +92,7 @@
     </form>      
 </section>
 
-<!-- SCRIPTS PREMIUM -->
 <script>
-
-videos.forEach(video => videoObserver.observe(video));
-
 /* SCROLL REVEAL */
 const reveals = document.querySelectorAll('.reveal');
 
@@ -111,24 +106,21 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 
-
-//* FORMULÁRIO DE CONTATO VIA WHATSAPP */
+/* FORMULÁRIO DE CONTATO VIA WHATSAPP */
 function enviarwhatsapp(event) {
-    event.preventDefault(); // Evita o recarregamento da página
+    event.preventDefault(); 
 
     const nome = document.getElementById('nome').value;
-    const mensagem = document.getElementById('mensagem').value; // Adicionado .value aqui
+    const mensagem = document.getElementById('mensagem').value; 
     const contato = '5595991618031'; 
 
-    // Cria a mensagem amigável
     const texto = `Olá Italo! Meu nome é ${nome}. ${mensagem}`;
     const msgformatada = encodeURIComponent(texto);
 
-    // URL oficial do WhatsApp (funciona em qualquer aparelho)
     const url = `https://api.whatsapp.com/send?phone=${contato}&text=${msgformatada}`;
 
     window.open(url, '_blank');
-} // Removido o ); que estava sobrando
+}
 </script>
 </body>
 </html>
