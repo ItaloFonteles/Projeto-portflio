@@ -35,11 +35,26 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
+/* =========================================
+   1. ESTILO PADRÃO (COMPUTADOR)
+   ========================================= */
+.navegacao {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #020617;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
 .menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Garante tudo no centro */
     gap: 40px;
+    margin: 0; /* Remove recuos padrão do navegador */
+    padding: 0; /* Remove recuos padrão do navegador */
 }
 
 .menu-link {
@@ -47,6 +62,25 @@ body {
     color: #e5e7eb;
     font-weight: bold;
     transition: 0.3s;
+}
+
+.menu-link:hover {
+    color: #38bdf8;
+}
+
+/* =========================================
+   2. ESTILO APENAS PARA CELULAR (O "Muro")
+   ========================================= */
+@media (max-width: 768px) {
+    .menu {
+        gap: 15px; 
+        flex-wrap: wrap; 
+        padding: 0 10px; 
+    }
+
+    .menu-link {
+        font-size: 0.9rem; 
+    }
 }
 
 .menu-link:hover {
