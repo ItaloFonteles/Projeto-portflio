@@ -24,8 +24,17 @@
                 <video src="img/configuracao-biosPC.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
-                <h3>Configuração de BIOS</h3>
-                <p>Ajuste fino de parâmetros para garantir que o hardware reconheça todos os componentes e opere com o máximo desempenho e segurança.</p>
+                <h3>Otimização e Configuração de BIOS | Em Andamento</h3>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral (Bastidores)</h4>
+                <p>Registro da fase inicial de testes e parametrização de placa-mãe. O vídeo ilustra a máquina em ambiente de bancada — etapa anterior à organização final do cabeamento —, onde o foco é garantir que o hardware reconheça todos os componentes com estabilidade.</p>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Destaques Técnicos</h4>
+                <ul style="margin-left: 20px; margin-bottom: 10px;">
+                    <li style="margin-bottom: 5px;"><strong>Performance Térmica:</strong> Ajuste preliminar de curvas de ventoinhas para testes de refrigeração.</li>
+                    <li style="margin-bottom: 5px;"><strong>Memória e Armazenamento:</strong> Ativação de perfis de alta velocidade e configuração de hierarquia de boot.</li>
+                    <li style="margin-bottom: 5px;"><strong>Validação:</strong> Teste de <em>Power-On Self-Test</em> (POST) para certificar a saúde das peças antes do fechamento do chassi.</li>
+                </ul>
             </div>
         </div>
 
@@ -34,18 +43,36 @@
                 <video src="img/montagemservidores.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
-                <h3>Montagem de Servidores</h3>
-                <p>Estruturação física de servidores corporativos, focando em organização de cabos e fluxo de refrigeração constante.</p>
+                <h3>Montagem de PC de Alta Performance | Em Andamento</h3>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral (Bastidores)</h4>
+                <p>Processo de montagem bruta e ancoragem de componentes de um desktop de alto desempenho. O registro foca na instalação das peças e testes elétricos primários, retratando o equipamento exatamente como fica antes da amarração e roteamento estético dos cabos.</p>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Destaques Técnicos</h4>
+                <ul style="margin-left: 20px; margin-bottom: 10px;">
+                    <li style="margin-bottom: 5px;"><strong>Processamento e Vídeo:</strong> Instalação segura de processador Intel Core i7 e ancoragem de placa de vídeo dedicada (RTX 4060).</li>
+                    <li style="margin-bottom: 5px;"><strong>Armazenamento Veloz:</strong> Fixação de SSD padrão M.2 (NVMe) diretamente na placa-mãe para zerar gargalos de leitura.</li>
+                    <li style="margin-bottom: 5px;"><strong>Montagem Tática:</strong> Foco no encaixe preciso dos barramentos de energia e dados para garantir o primeiro boot com sucesso.</li>
+                </ul>
             </div>
         </div>
 
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <video src= muted loop autoplay playsinline></video>
+                <video src="img/manutencao.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
-                <h3>Manutenção Preventiva</h3>
-                <p>Limpeza completa e substituição de componentes térmicos para evitar falhas críticas por superaquecimento.</p>
+                <h3>Intervenção Técnica e Preventiva | Em Andamento</h3>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral (Bastidores)</h4>
+                <p>Desmontagem técnica profunda para higienização e revitalização de hardware. As imagens mostram o equipamento aberto ("fase bruta" de intervenção), destacando o trabalho cirúrgico direto nos componentes antes de o sistema ser remontado e organizado.</p>
+                
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Destaques Técnicos</h4>
+                <ul style="margin-left: 20px; margin-bottom: 10px;">
+                    <li style="margin-bottom: 5px;"><strong>Higienização Profunda:</strong> Limpeza detalhada de placas de circuito e remoção de poeira obstrutiva dos dissipadores.</li>
+                    <li style="margin-bottom: 5px;"><strong>Revitalização Térmica:</strong> Aplicação de novos compostos térmicos nos processadores para evitar superaquecimento.</li>
+                    <li style="margin-bottom: 5px;"><strong>Preparação:</strong> Check-up visual de trilhas e capacitores durante a fase de bancada, antecipando falhas futuras.</li>
+                </ul>
             </div>
         </div>
 
@@ -60,14 +87,11 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Ativa a classe active para o CSS fazer o fade-in
                 entry.target.classList.add('active');
-                
-                // Pega o vídeo se ele existir dentro desse item
                 const video = entry.target.querySelector('video');
                 if (video) {
                     video.play().catch(error => {
-                        console.log("O autoplay foi bloqueado pelo navegador ou o vídeo ainda não carregou.");
+                        console.log("Autoplay bloqueado pelo navegador.");
                     });
                 }
             } else {
