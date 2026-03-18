@@ -368,3 +368,30 @@ body {
         transform: translateY(-15px);
     }
 }   
+/* =======================================================
+   CORREÇÕES PARA COMPUTADOR/NOTEBOOK (A partir de 768px)
+   (Isso não altera absolutamente nada no celular)
+   ======================================================= */
+@media (min-width: 768px) {
+    
+    /* 1. RESOLVE O MENU CORTANDO A PÁGINA */
+    /* Isso avisa o navegador que o menu tem um tamanho e impede 
+       que ele jogue os títulos para debaixo do menu ao rolar a página */
+    html {
+        scroll-padding-top: 100px; 
+    }
+    /* 2. RESOLVE O VÍDEO GIGANTE */
+    /* Limita a altura máxima do vídeo para caber perfeitamente na tela do notebook */
+    .media-wrapper {
+        max-height: 500px; /* Limite de altura */
+        width: 100%;
+    }
+    /* Se o seu vídeo original for "em pé" (gravado na vertical do celular) 
+       e ficar com a imagem cortada por causa do 16/9 acima, apague a linha 
+       'aspect-ratio: 16 / 9;' e deixe apenas o 'max-height: 450px;' */
+       
+    .projeto-item-detalhado .media-wrapper {
+        max-width: 100%; /* Garante que ele respeite a coluna do grid */
+        margin: 0;
+    }
+}
