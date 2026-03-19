@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Portfólio de Ítalo Fonteles, técnico em hardware, software, redes e audiovisual.">
     <meta name="keywords" content="técnico em informática, hardware, software, redes, audiovisual, TI, suporte técnico">
     <meta name="author" content="Ítalo Fonteles">
-
     <link rel="stylesheet" href="styles.css">
     <title>Portfólio | Ítalo</title>
 </head>
@@ -24,7 +22,7 @@
 </nav>   
 
 <main id="inicio" class="cabecalho">
-<img src="img/perfilitalo.jpg" alt="Foto de Ítalo Fonteles" class="foto-perfil">
+    <img src="img/perfilitalo.jpg" alt="Foto de Ítalo Fonteles" class="foto-perfil">
     <h1>Ítalo Fonteles</h1>  
     <p class="subtitulo">Técnico Hardware, Software e Audiovisual</p>      
 </main>
@@ -42,7 +40,6 @@
 <section id="projetos" class="trabalho">
     <h2 class="trabalho-titulo reveal">Meus Trabalhos</h2>
     <div class="trabalho-caixa">
-
         <a href="hardware.html" class="card-link-wrapper">
             <div class="trabalho-item reveal">
                 <h3 class="trabalho-nome">Manutenção e Upgrades</h3>
@@ -72,30 +69,51 @@
                 <p class="trabalho-descricao">Clique para ver instalações de equipamentos em Plenários</p>
             </div>
         </a>
-
     </div>
 </section>
 
 <section id="contato" class="contato reveal">
     <h2 class="contato-titulo">Contato</h2>
-    <h3 class="contato-subtitulo">Precisa de suporte técnico ou serviços de TI? Fale comigo para esclarecer dúvidas e conhecer as soluções que posso oferecer para você ou sua empresa. </h3>
+    <h3 class="contato-subtitulo">Precisa de suporte técnico ou serviços de TI? Fale comigo.</h3>
 
     <form class="formulario-contato" id="formulario" onsubmit="enviarwhatsapp(event)">
         <div class="grupo-form">
-            <input type="text" placeholder="Nome" id="nome">
+            <input type="text" placeholder="Nome" id="nome" required>
         </div> 
-
         <div class="grupo-form">
-            <textarea class="text-form" placeholder="Digite sua mensagem" id="mensagem"></textarea>
+            <textarea class="text-form" placeholder="Digite sua mensagem" id="mensagem" required></textarea>
         </div>
         <button type="submit" class="botao-enviar">Enviar Whatsapp</button>
     </form>      
 </section>
 
+<footer class="rodape-profissional">
+
+    <div class="linkedin-wrapper">
+        <div class="badge-base LI-profile-badge" 
+             data-locale="pt_BR" 
+             data-size="medium" 
+             data-theme="dark" 
+             data-type="VERTICAL" 
+             data-vanity="italo-fonteles-543984356" 
+             data-version="v1">
+            <a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/italo-fonteles-543984356?trk=profile-badge"></a>
+        </div>
+    </div>
+
+    <a href="https://github.com/ItaloFonteles" target="_blank" class="github-card-novo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        <h4>GitHub</h4>
+        <p>Acesse meus repositórios.</p>
+    </a>
+
+</footer>
+
 <script>
 /* SCROLL REVEAL */
 const reveals = document.querySelectorAll('.reveal');
-
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -108,19 +126,17 @@ reveals.forEach(el => revealObserver.observe(el));
 
 /* FORMULÁRIO DE CONTATO VIA WHATSAPP */
 function enviarwhatsapp(event) {
-    event.preventDefault(); 
-
+    event.preventDefault();     
     const nome = document.getElementById('nome').value;
     const mensagem = document.getElementById('mensagem').value; 
     const contato = '5595991618031'; 
-
     const texto = `Olá Italo! Meu nome é ${nome}. ${mensagem}`;
     const msgformatada = encodeURIComponent(texto);
-
     const url = `https://api.whatsapp.com/send?phone=${contato}&text=${msgformatada}`;
-
     window.open(url, '_blank');
-}
+}   
 </script>
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
 </body>
 </html>

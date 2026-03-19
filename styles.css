@@ -149,6 +149,7 @@ body {
 .sobre-paragrafo {
     font-size: 1.1rem;
     color: #cbd5f5;  
+    text-align: center;
 }
 
 /* ================= TRABALHOS ================= */
@@ -373,19 +374,15 @@ body {
    (Isso não altera absolutamente nada no celular)
    ======================================================= */
 @media (min-width: 768px) {
-    
-    /* 1. RESOLVE O MENU CORTANDO A PÁGINA */
-    /* Isso avisa o navegador que o menu tem um tamanho e impede 
-       que ele jogue os títulos para debaixo do menu ao rolar a página */
-    html {
-        scroll-padding-top: 100px; 
-    }
+
+
     /* 2. RESOLVE O VÍDEO GIGANTE */
     /* Limita a altura máxima do vídeo para caber perfeitamente na tela do notebook */
     .media-wrapper {
         max-height: 500px; /* Limite de altura */
         width: 100%;
     }
+
     /* Se o seu vídeo original for "em pé" (gravado na vertical do celular) 
        e ficar com a imagem cortada por causa do 16/9 acima, apague a linha 
        'aspect-ratio: 16 / 9;' e deixe apenas o 'max-height: 450px;' */
@@ -393,5 +390,97 @@ body {
     .projeto-item-detalhado .media-wrapper {
         max-width: 100%; /* Garante que ele respeite a coluna do grid */
         margin: 0;
+    }
+}
+/* Ajuste para o Selo do LinkedIn ficar menor */
+.badge-container {
+    transform: scale(0.85); /* Diminui o tamanho em 15% */
+    transform-origin: center;
+}
+
+/* 1. CENTRALIZAR TEXTO SOBRE MIM */
+.sobre-caixa {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sobre-paragrafo {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* 2. RODAPÉ ORGANIZADO */
+.rodape-profissional {
+    background: #020617;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; /* Centraliza os cards */
+    align-items: center;
+    gap: 40px; /* Espaço entre as caixas */
+    flex-wrap: wrap; /* Para funcionar no celular */
+    border-top: 1px solid #1e293b;
+}
+
+/* Container para controlar o tamanho do LinkedIn */
+.linkedin-wrapper {
+    width: 280px; /* Largura fixa menor */
+    height: 320px; /* Altura fixa para não cortar */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Reduzindo o selo do LinkedIn em 20% sem sobrar espaço */
+.linkedin-wrapper .badge-base {
+    transform: scale(0.8);
+    transform-origin: top center;
+}
+
+/* 3. CAIXINHA DO GITHUB (Combinando com o tamanho do LinkedIn) */
+.github-card-novo {
+    width: 280px;
+    height: 260px; /* Ajustado para alinhar visualmente */
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 20px;
+}
+
+.github-card-novo:hover {
+    border-color: #38bdf8;
+    background: #1e293b;
+    transform: translateY(-5px);
+}
+
+.github-card-novo svg {
+    width: 50px;
+    fill: #38bdf8;
+    margin-bottom: 15px;
+}
+
+.github-card-novo h4 {
+    color: #e5e7eb;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.github-card-novo p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .rodape-profissional {
+        flex-direction: column;
+        gap: 20px;
     }
 }
