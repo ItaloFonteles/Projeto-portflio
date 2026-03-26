@@ -10,7 +10,7 @@
 
 <nav class="navegacao">
     <ul class="menu">
-        <li><a href="index.html" class="menu-link">← Voltar</a></li>
+        <li><a href="index.html" class="menu-link">← Voltar para o Início</a></li>
     </ul>
 </nav>
 
@@ -21,63 +21,73 @@
         
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <video src="img/configuracao-biosPC.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
+                <video src="img/configuracao-biosPC.mp4" 
+                       muted loop playsinline 
+                       preload="auto" 
+                       class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
-                <h3>Otimização e Configuração de BIOS | Em Andamento</h3>
+                <h3>Otimização e Configuração de BIOS</h3>
                 
-                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral (Bastidores)</h4>
-                <p>Registro da fase inicial de testes e parametrização de placa-mãe. O vídeo ilustra a máquina em ambiente de bancada — etapa anterior à organização final do cabeamento —, onde o foco é garantir que o hardware reconheça todos os componentes com estabilidade.</p>
+                <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral (Bancada)</h4>
+                <p>Registro da fase inicial de testes e parametrização de placa-mãe. O foco nesta etapa é garantir que o hardware reconheça todos os componentes com estabilidade antes da montagem final no gabinete.</p>
                 
                 <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Destaques Técnicos</h4>
                 <ul style="margin-left: 20px; margin-bottom: 10px;">
-                    <li style="margin-bottom: 5px;"><strong>Performance Térmica:</strong> Ajuste preliminar de curvas de ventoinhas para testes de refrigeração.</li>
-                    <li style="margin-bottom: 5px;"><strong>Memória e Armazenamento:</strong> Ativação de perfis de alta velocidade e configuração de hierarquia de boot.</li>
-                    <li style="margin-bottom: 5px;"><strong>Validação:</strong> Teste de <em>Power-On Self-Test</em> (POST) para certificar a saúde das peças antes do fechamento do chassi.</li>
+                    <li style="margin-bottom: 5px;"><strong>Performance Térmica:</strong> Ajuste de curvas de ventoinhas para equilíbrio entre ruído e refrigeração.</li>
+                    <li style="margin-bottom: 5px;"><strong>Perfis de Memória:</strong> Ativação de perfis de alta velocidade (XMP) para extrair o máximo do hardware.</li>
+                    <li style="margin-bottom: 5px;"><strong>Validação de POST:</strong> Certificação de saúde das peças e hierarquia de boot correta.</li>
                 </ul>
             </div>
         </div>
 
         <div class="projeto-item-detalhado reveal">
             <div class="media-wrapper">
-                <video src="img/montagem-servidores.mp4" muted loop playsinline preload="metadata" class="video-projeto"></video>
+                <video src="img/montagem-servidores.mp4" 
+                       poster="img/capa-servidor.jpg" 
+                       muted loop playsinline 
+                       preload="auto" 
+                       class="video-projeto"></video>
             </div>
             <div class="texto-explicativo">
-                <h3>Montagem de Servidor de Processamentos</h3>
+                <h3>Servidor de Processamentos | Projeto Finalizado</h3>
                 
                 <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Visão Geral</h4>
-                <p>Registro completo da montagem e validação de um Servidor de Processamentos de alto desempenho acomodado em um chassi de rack. O vídeo detalha as etapas operacionais: desde a preparação na bancada, instalação do armazenamento de alta velocidade, até a ancoragem no gabinete corporativo e o primeiro boot (POST) no sistema.</p>
+                <p>Montagem completa e validação de uma Workstation/Servidor de alto desempenho em chassi de rack. O projeto contempla desde a preparação bruta na bancada até a parametrização final de software e hardware.</p>
                 
                 <h4 style="margin-top: 15px; margin-bottom: 5px; color: #cbd5e1;">Destaques Técnicos</h4>
                 <ul style="margin-left: 20px; margin-bottom: 10px;">
-                    <li style="margin-bottom: 5px;"><strong>Base do Sistema:</strong> Montagem estruturada sobre a placa-mãe MSI PRO H610M-E DDR4, garantindo estabilidade para o ambiente corporativo.</li>
-                    <li style="margin-bottom: 5px;"><strong>Processamento e Vídeo:</strong> Equipado com processador Intel Core i7 (10ª Geração) e placa de vídeo dedicada RTX 5060 Ti para aceleração gráfica e cargas de trabalho exigentes.</li>
-                    <li style="margin-bottom: 5px;"><strong>Armazenamento Veloz:</strong> Instalação de SSD padrão M.2 (NVMe) fixado diretamente na placa-mãe, eliminando gargalos de leitura e gravação de dados.</li>
-                    <li style="margin-bottom: 5px;"><strong>Infraestrutura e Energia:</strong> Acomodação em gabinete padrão rack com fonte de alimentação (750W) dimensionada para suportar o pico de consumo do hardware com total segurança.</li>
+                    <li style="margin-bottom: 5px;"><strong>Base de Performance:</strong> Placa-mãe MSI PRO H610M-E DDR4 equipada com Processador Intel Core i7 (10ª Geração).</li>
+                    <li style="margin-bottom: 5px;"><strong>Poder Gráfico:</strong> Placa de vídeo dedicada RTX 5060 Ti para aceleração de processos pesados.</li>
+                    <li style="margin-bottom: 5px;"><strong>Armazenamento:</strong> SSD padrão M.2 (NVMe) instalado diretamente no barramento da placa para eliminar gargalos.</li>
+                    <li style="margin-bottom: 5px;"><strong>Infraestrutura:</strong> Gabinete padrão rack com fonte de alimentação de 750W devidamente dimensionada.</li>
                 </ul>
             </div>
         </div>
+
     </div>
 </main>
 
 <script>
+    /* SCRIPT PARA EXIBIÇÃO E AUTOPLAY DOS VÍDEOS AO DAR SCROLL */
     const observerOptions = {
         threshold: 0.2 
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const video = entry.target.querySelector('video');
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                const video = entry.target.querySelector('video');
                 if (video) {
                     video.play().catch(error => {
                         console.log("Autoplay bloqueado pelo navegador.");
                     });
                 }
             } else {
-                const video = entry.target.querySelector('video');
-                if (video) video.pause();
+                if (video) {
+                    video.pause();
+                }
             }
         });
     }, observerOptions);
