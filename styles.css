@@ -6,13 +6,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #0f172a;
     color: #e5e7eb;
     line-height: 1.6;
 }
 
-/* ADICIONADO APENAS O QUE É NECESSÁRIO PARA O REVEAL FUNCIONAR */
+/* ================= ANIMAÇÕES ================= */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -24,20 +28,16 @@ body {
     transform: translateY(0);
 }
 
-/* ================= NAVBAR ================= */
-.navegacao {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #020617;
-    padding: 15px 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}   
 
-/* =========================================
-   1. ESTILO PADRÃO (COMPUTADOR)
-   ========================================= */
+/* ================= NAVBAR ================= */
 .navegacao {
     position: fixed;
     top: 0;
@@ -51,10 +51,10 @@ body {
 .menu {
     list-style: none;
     display: flex;
-    justify-content: center; /* Garante tudo no centro */
+    justify-content: center; 
     gap: 40px;
-    margin: 0; /* Remove recuos padrão do navegador */
-    padding: 0; /* Remove recuos padrão do navegador */
+    margin: 0; 
+    padding: 0; 
 }
 
 .menu-link {
@@ -62,25 +62,6 @@ body {
     color: #e5e7eb;
     font-weight: bold;
     transition: 0.3s;
-}
-
-.menu-link:hover {
-    color: #38bdf8;
-}
-
-/* =========================================
-   2. ESTILO APENAS PARA CELULAR (O "Muro")
-   ========================================= */
-@media (max-width: 768px) {
-    .menu {
-        gap: 15px; 
-        flex-wrap: wrap; 
-        padding: 0 10px; 
-    }
-
-    .menu-link {
-        font-size: 0.9rem; 
-    }
 }
 
 .menu-link:hover {
@@ -103,7 +84,7 @@ body {
     width: 200px; 
     height: 200px;
     object-fit: cover;
-    object-position: center top; /* Foco no rosto */
+    object-position: center top; 
     border-radius: 50%;
     border: 4px solid #38bdf8;
     box-shadow: 
@@ -191,30 +172,13 @@ body {
     color: #38bdf8;
 }
 
-/* AJUSTE ESPECÍFICO DE TAMANHO PARA PÁGINAS INTERNAS */
-
-/* 1. Limita a largura do container */
-.container-detalhes {
-    max-width: 1100px;
-    margin: 0 auto;
+.card-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-/* 2. Controla o tamanho do vídeo */
-.projeto-item-detalhado .media-wrapper {
-    max-width: 800px; 
-    width: 100%;
-    margin: 0 auto; 
-}
-
-/* 3. Garante que o vídeo preencha o espaço */
-.projeto-item-detalhado video,
-.projeto-item-detalhado img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-}
-/* PADRÃO PROFISSIONAL PARA TODAS AS MÍDIAS */
+/* MÍDIAS DOS TRABALHOS */
 .media-wrapper {
     width: 100%;
     aspect-ratio: 3 / 4; 
@@ -227,17 +191,27 @@ body {
     justify-content: center;
 }
 
-/* Estilos para as páginas internas */
-.card-link-wrapper {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.trabalho-imagem,
+.trabalho-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+    object-position: center;
+    pointer-events: none;
 }
 
+.trabalho-descricao {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #cbd5f5;
+    text-align: center;
+}
+
+/* ================= PÁGINAS INTERNAS (DETALHES) ================= */
 .container-detalhes {
     padding: 80px 20px;
-    max-width: 1100px; /* Corrigido de max-items para max-width */
-    margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .lista-trabalhos {
@@ -258,6 +232,20 @@ body {
     border: 1px solid #1e293b;
 }
 
+.projeto-item-detalhado .media-wrapper {
+    max-width: 800px; 
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.projeto-item-detalhado video,
+.projeto-item-detalhado img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
 .texto-explicativo h3 {
     color: #38bdf8;
     margin-bottom: 10px;
@@ -266,30 +254,6 @@ body {
 .texto-explicativo p {
     color: #cbd5f5;
     line-height: 1.5;
-}
-
-/* Responsividade: No celular, o texto fica abaixo do vídeo */
-@media (max-width: 768px) {
-    .projeto-item-detalhado {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Imagens e vídeos sempre do mesmo tamanho */
-.trabalho-imagem,
-.trabalho-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    
-    object-position: center;
-    pointer-events: none;
-}
-
-.trabalho-descricao {
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: #cbd5f5;
-    text-align: center;
 }
 
 /* ================= CONTATO ================= */
@@ -342,6 +306,13 @@ body {
     background: #0f172a;
     color: #e5e7eb;
     border: 1px solid #1e293b;
+    transition: all 0.3s ease;
+}
+
+.grupo-form input:focus,
+.text-form:focus {
+    border-color: #38bdf8;
+    background: #111d35;
 }
 
 .grupo-form input::placeholder,
@@ -354,93 +325,22 @@ body {
     resize: vertical;
 }
 
-/* ================= RESPONSIVO ================= */
-@media (max-width: 600px) {
-    .menu {
-        gap: 20px;
-        font-size: 0
-    }}
-    /* ================= ANIMAÇÃO DE FLUTUAR ================= */
-@keyframes flutuar {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}   
-/* =======================================================
-   CORREÇÕES PARA COMPUTADOR/NOTEBOOK (A partir de 768px)
-   (Isso não altera absolutamente nada no celular)
-   ======================================================= */
-@media (min-width: 768px) {
-
-
-    /* 2. RESOLVE O VÍDEO GIGANTE */
-    /* Limita a altura máxima do vídeo para caber perfeitamente na tela do notebook */
-    .media-wrapper {
-        max-height: 500px; /* Limite de altura */
-        width: 100%;
-    }
-
-    /* Se o seu vídeo original for "em pé" (gravado na vertical do celular) 
-       e ficar com a imagem cortada por causa do 16/9 acima, apague a linha 
-       'aspect-ratio: 16 / 9;' e deixe apenas o 'max-height: 450px;' */
-       
-    .projeto-item-detalhado .media-wrapper {
-        max-width: 100%; /* Garante que ele respeite a coluna do grid */
-        margin: 0;
-    }
-}
-/* Ajuste para o Selo do LinkedIn ficar menor */
-.badge-container {
-    transform: scale(0.85); /* Diminui o tamanho em 15% */
-    transform-origin: center;
-}
-
-/* 1. CENTRALIZAR TEXTO SOBRE MIM */
-.sobre-caixa {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.sobre-paragrafo {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* 2. RODAPÉ ORGANIZADO */
+/* ================= RODAPÉ REVISADO (PADRÃO 100px) ================= */
 .rodape-profissional {
     background: #020617;
     padding: 60px 20px;
     display: flex;
-    justify-content: center; /* Centraliza os cards */
+    justify-content: center; 
     align-items: center;
-    gap: 40px; /* Espaço entre as caixas */
-    flex-wrap: wrap; /* Para funcionar no celular */
+    gap: 30px; 
+    flex-wrap: wrap; 
     border-top: 1px solid #1e293b;
 }
 
-/* Container para controlar o tamanho do LinkedIn */
-.linkedin-wrapper {
-    width: 280px; /* Largura fixa menor */
-    height: 320px; /* Altura fixa para não cortar */
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* Reduzindo o selo do LinkedIn em 20% sem sobrar espaço */
-.linkedin-wrapper .badge-base {
-    transform: scale(0.8);
-    transform-origin: top center;
-}
-
-/* 3. CAIXINHA DO GITHUB (Combinando com o tamanho do LinkedIn) */
-.github-card-novo {
-    width: 280px;
-    height: 260px; /* Ajustado para alinhar visualmente */
+/* CLASSE COMUM PARA OS DOIS CARDS NOVO */
+.card-footer-novo {
+    width: 100px; 
+    height: 100px; 
     background: #0f172a;
     border: 1px solid #1e293b;
     border-radius: 12px;
@@ -450,37 +350,66 @@ body {
     justify-content: center;
     text-align: center;
     text-decoration: none;
-    transition: 0.3s;
-    padding: 20px;
+    transition: all 0.3s ease;
+    padding: 5px;
 }
 
-.github-card-novo:hover {
+.card-footer-novo:hover {
     border-color: #38bdf8;
     background: #1e293b;
     transform: translateY(-5px);
 }
 
-.github-card-novo svg {
-    width: 50px;
-    fill: #38bdf8;
-    margin-bottom: 15px;
+.card-footer-novo svg {
+    width: 35px; /* Tamanho do ícone ajustado para caber nos 100px */
+    fill: #38bdf8; 
+    margin-bottom: 5px;
 }
 
-.github-card-novo h4 {
+.card-footer-novo h4 {
     color: #e5e7eb;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    margin-bottom: 0;
+    font-size: 0.75rem; /* Fonte menor para caber nos 100px */
 }
 
-.github-card-novo p {
-    color: #94a3b8;
-    font-size: 0.85rem;
+/* ================= RESPONSIVIDADE (MEDIA QUERIES) ================= */
+
+/* Para Notebooks / Telas Maiores */
+@media (min-width: 768px) {
+    .media-wrapper {
+        max-height: 500px; 
+        width: 100%;
+    }
+       
+    .projeto-item-detalhado .media-wrapper {
+        max-width: 100%; 
+        margin: 0;
+    }
 }
 
-/* Ajuste para celular */
+/* Para Tablets / Celulares Grandes */
 @media (max-width: 768px) {
+    .menu {
+        gap: 15px; 
+        flex-wrap: wrap; 
+        padding: 0 10px; 
+    }
+    .menu-link {
+        font-size: 0.9rem; 
+    }
+    .projeto-item-detalhado {
+        grid-template-columns: 1fr;
+    }
     .rodape-profissional {
-        flex-direction: column;
+        flex-direction: row; /* Mantém lado a lado no celular */
         gap: 20px;
+    }
+}
+
+/* Para Celulares Pequenos */
+@media (max-width: 600px) {
+    .menu {
+        gap: 15px;
+        justify-content: center;
     }
 }
