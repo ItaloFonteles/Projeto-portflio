@@ -33,5 +33,5 @@ Além da minha vivência com infraestrutura e suporte técnico, tenho um forte f
 ---
 
 ## 📫 Como me encontrar
-- **LinkedIn:** [Seu LinkedIn Aqui](link-do-linkedin)
-- **E-mail:** [seu-email@dominio.com](mailto:seu-email@dominio.com)
+- **LinkedIn:** [Seu LinkedIn Aqui](https://www.linkedin.com/in/italo-fonteles-543984356/)
+- **E-mail:** [seu-email@dominio.com](https://github.com/ItaloFonteles)
